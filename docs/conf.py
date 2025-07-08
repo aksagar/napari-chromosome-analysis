@@ -14,6 +14,40 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath('..'))
 
+# Mock imports for ReadTheDocs compatibility
+# These modules require GUI/GPU support that isn't available on ReadTheDocs
+from unittest.mock import MagicMock
+
+class Mock(MagicMock):
+    @classmethod
+    def __getattr__(cls, name):
+        return MagicMock()
+
+MOCK_MODULES = [
+    'napari',
+    'napari.Viewer',
+    'napari.utils',
+    'napari.utils.notifications',
+    'magicgui',
+    'qtpy',
+    'qtpy.QtWidgets',
+    'superqt',
+    'cellpose',
+    'cellpose.models',
+    'torch',
+    'torchvision',
+    'PyQt5',
+    'PySide2',
+    'PySide6',
+    'PyQt6',
+]
+
+for mod_name in MOCK_MODULES:
+    sys.modules[mod_name] = Mock()
+
+# Set environment variable to indicate we're building docs
+os.environ['SPHINX_BUILD'] = '1'
+
 
 # -- Project information -----------------------------------------------------
 
@@ -82,6 +116,39 @@ autodoc_member_order = 'bysource'
 
 # This value controls how to represent typehints.
 autodoc_typehints = 'description'
+
+# Mock imports and graceful error handling
+autodoc_mock_imports = [
+    'napari',
+    'napari.Viewer',
+    'napari.utils',
+    'napari.utils.notifications',
+    'magicgui',
+    'qtpy',
+    'qtpy.QtWidgets',
+    'superqt',
+    'cellpose',
+    'cellpose.models',
+    'torch',
+    'torchvision',
+    'PyQt5',
+    'PySide2',
+    'PySide6',
+    'PyQt6',
+]
+
+# Continue building even with import errors
+autodoc_default_options = {
+    'members': True,
+    'undoc-members': True,
+    'show-inheritance': True,
+    'special-members': False,
+    'private-members': False,
+    'ignore-module-all': False,
+}
+
+# Skip problematic members that can't be imported
+autodoc_preserve_defaults = True
 
 # -- Options for Napoleon extension ------------------------------------------
 
