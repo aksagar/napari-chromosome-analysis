@@ -30,7 +30,7 @@ setup(
     description="A toolkit for analyzing metaphase chromosomes using Napari",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/your-username/napari-chromosome-analysis",  # Update with actual URL
+    url="https://github.com/aksagar/napari-chromosome-analysis",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 4 - Beta",
@@ -81,7 +81,7 @@ setup(
     keywords="napari, chromosome, analysis, segmentation, fluorescence, microscopy",
     project_urls={
         "Documentation": "https://napari-chromosome-analysis.readthedocs.io/",
-        "Source": "https://github.com/your-username/napari-chromosome-analysis",
-        "Tracker": "https://github.com/your-username/napari-chromosome-analysis/issues",
+        "Source": "https://github.com/aksagar/napari-chromosome-analysis",
+        "Tracker": "https://github.com/aksagar/napari-chromosome-analysis/issues",
     },
 ) 
