@@ -13,115 +13,286 @@ Before starting, ensure you have:
 * Sample chromosome images in TIFF format
 * Trained Cellpose model (if using custom segmentation)
 
-Basic Usage
------------
+Launch the Application
+----------------------
 
-1. **Launch the application**::
+Start the application from the command line::
 
     python main.py
 
-2. **Load images**:
-   
-   * Click "Load Images" button
-   * Select a folder containing your chromosome images
-   * The software expects images with specific suffixes (e.g., DAPI, DNA-FISH, CENP-C)
+The Napari viewer window will open with the chromosome analysis interface.
 
-3. **Configure channel identifiers**:
-   
-   * Set the appropriate file suffixes for each channel
-   * DAPI: for chromosome segmentation
-   * DNA-FISH: for spot detection (channel 1)
-   * CENP-C: for centromere detection (channel 2)
+Quick Workflow (5 Steps)
+-------------------------
 
-4. **Segment chromosomes**:
-   
-   * Click "Segment (DAPI) Image" 
-   * The software will use Cellpose to identify individual chromosomes
-   * Adjust post-processing settings if needed
+Step 1: Configure Channel Identifiers
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-5. **Detect spots**:
-   
-   * Adjust threshold sliders for each channel
-   * Click "Detect Channel 1 spots" for DNA-FISH
-   * Click "Detect Channel 2 spots" for CENP-C
-   * Review and manually correct detections if needed
+Before loading images, set up your channel identifiers to match your image naming:
 
-6. **Find common regions**:
-   
-   * Click "Find Common" to identify overlapping regions
-   * This step is crucial for accurate quantification
+.. figure:: _static/images/slide_03_workflow_guide_step_1_setting_img03.png
+   :alt: Channel identifier setup
+   :align: center
+   :width: 70%
 
-7. **Measure intensities**:
-   
-   * Click "Get Intensity at Spots Locations"
-   * Export results as CSV files
+   **Configure your channel identifiers** (e.g., 435 for DAPI, 525 for DNA-FISH, 679 for CENP-C)
 
-Example Workflow
-----------------
+* **DAPI Channel**: Identifier in your DAPI image filenames
+* **Channel 1 (DNA-FISH)**: Identifier for DNA-FISH images
+* **Channel 2 (CENP-C)**: Identifier for CENP-C images
 
-Here's a typical analysis workflow:
+Step 2: Load Your Images
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Single Image Analysis**:
+1. Click **Load Images**
+2. Select the folder containing your image files
+3. Your images will appear in the viewer and the folder list
 
-1. Load images → Configure channels → Segment → Detect spots → Find common → Measure intensities
+.. figure:: _static/images/slide_04_step_2_loading_images_click_l_img04.png
+   :alt: Loading images
+   :align: center
+   :width: 80%
 
-**Batch Processing**:
+   **After loading images** - the interface shows all available image sets in the list.
 
-1. Load images → Configure channels → Set thresholds → Click "Batch Processing"
-2. The software will process all folders automatically
-3. Results will be saved in each folder plus a combined CSV
+Step 3: Segment and Detect
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Key Features
-------------
+For a complete analysis:
 
-**Interactive Controls**:
+1. Click **Segment (DAPI) Image** to identify chromosomes
+2. Adjust the **DNA-FISH Threshold** slider
+3. Click **Detect Channel 1 Spots**
+4. Adjust the **CENP-C Threshold** slider
+5. Click **Detect Channel 2 Spots**
 
-* Threshold sliders for spot detection
-* Manual correction tools
-* Line drawing for chromosome splitting/merging
+.. figure:: _static/images/slide_06_slide_6_img06.jpg
+   :alt: Segmentation result
+   :align: center
+   :width: 75%
 
-**Visualization**:
+   **Segmentation result** showing individual chromosomes labeled with different colors.
 
-* Multi-channel image display
-* Overlay of detected spots
-* Segmentation masks
+.. figure:: _static/images/slide_08_after_clicking_detect_channel__img08.png
+   :alt: Spot detection result
+   :align: center
+   :width: 75%
 
-**Export Options**:
+   **Spot detection** - brown markers show detected DNA-FISH spots.
 
-* CSV files with intensity measurements
-* PNG images with overlays
-* Segmentation masks
+.. tip::
+   If you don't need chromosome segmentation, check **Skip Segmentation** before loading images.
 
-**Batch Processing**:
+Step 4: Find Common Regions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* Process multiple image folders
-* Consistent settings across all images
-* Combined results table
+Click **Find Common** to identify regions where both DNA-FISH and CENP-C signals overlap.
+
+This step filters the data to only include meaningful co-localized signals.
+
+Step 5: Get Results
+~~~~~~~~~~~~~~~~~~~~
+
+Click **Get Intensity at Spots Location** to:
+
+* Calculate intensities at all detected spots
+* Export results as a CSV file
+* Save data in the same folder as your images
+
+Done! Your analysis is complete and results are saved.
+
+Quick Workflow Using "Run All"
+-------------------------------
+
+For even faster processing:
+
+1. Configure channel identifiers
+2. Load images
+3. Adjust both threshold sliders to optimal values
+4. Click **Run All**
+
+.. figure:: _static/images/slide_13_run_all_img12.png
+   :alt: Run All button
+   :align: center
+   :width: 60%
+
+   **Run All** automates the entire workflow with one click.
+
+The software will automatically execute all steps and export results.
+
+Batch Processing Multiple Images
+---------------------------------
+
+To process many image folders at once:
+
+1. Load multiple folders using **Load Images**
+2. All folders appear in the list on the left
+3. Set your optimal thresholds
+4. Check **Use Current UI Settings**
+5. Click **Batch Processing**
+
+.. figure:: _static/images/slide_14_batch_processing_this_feature_img13.png
+   :alt: Batch processing
+   :align: center
+   :width: 70%
+
+   **Batch processing** interface for analyzing multiple image sets.
+
+Results will be saved for each folder, plus a combined summary file.
+
+Understanding the Interface
+---------------------------
+
+.. figure:: _static/images/slide_02_the_interface_img02.png
+   :alt: Main interface
+   :align: center
+   :width: 85%
+
+   **The main interface** showing all control panels.
+
+**Key Components:**
+
+* **Left panel**: Folder list and loaded image layers
+* **Right panel**: Control widgets and buttons
+* **Center**: Napari viewer displaying your images
+* **Top toolbar**: Napari tools for zooming, panning, and drawing
+
+Viewing Your Data
+~~~~~~~~~~~~~~~~~
+
+.. figure:: _static/images/slide_05_this_is_how_napari_works._all__img05.png
+   :alt: Layer controls
+   :align: center
+   :width: 75%
+
+   **Layer visibility controls** - click the eye icon to show/hide channels.
+
+* Click the **eye icon** to toggle layer visibility
+* Adjust **contrast** and **brightness** for each layer
+* Use **Toggle All Layers** to show/hide everything at once
+
+Manual Corrections (Optional)
+------------------------------
+
+Merging Chromosomes
+~~~~~~~~~~~~~~~~~~~
+
+If two chromosome regions should be one:
+
+1. Select the **Shapes layer**
+2. Draw a line connecting the regions
+3. Click **Merge Chromosomes**
+
+.. figure:: _static/images/slide_16_make_sure_the_segmented_layer__img16.png
+   :alt: Merging chromosomes
+   :align: center
+   :width: 70%
+
+   **Merging chromosomes** - draw a line to connect regions that should be merged.
+
+Removing Chromosomes
+~~~~~~~~~~~~~~~~~~~~
+
+To delete unwanted chromosomes:
+
+1. Select the **Shapes layer**
+2. Draw a line through the chromosome
+3. Click **Remove**
+
+.. figure:: _static/images/slide_17_removing_chromosomes_draw_lin_img18.png
+   :alt: Removing chromosomes
+   :align: center
+   :width: 70%
+
+   **Removing chromosomes** - draw over regions to mark for deletion.
+
+Don't forget to click **Save** after making manual corrections!
+
+Example Workflow Summary
+------------------------
+
+**Single Image Analysis:**
+
+.. code-block:: text
+
+   Configure channels → Load images → Segment → Detect spots → 
+   Find common → Get intensities → Save
+
+**Batch Processing:**
+
+.. code-block:: text
+
+   Configure channels → Load all folders → Set thresholds → 
+   Batch Processing → Results saved automatically
+
+**With Manual Corrections:**
+
+.. code-block:: text
+
+   Follow single image workflow → Make corrections → Save → 
+   Continue with next image
 
 Tips for Best Results
 ---------------------
 
-* **Image Quality**: Use high-quality, well-contrasted images
-* **Thresholds**: Adjust detection thresholds based on your imaging conditions
-* **Manual Correction**: Review automated detections and correct manually if needed
-* **Consistent Naming**: Use consistent file naming conventions for batch processing
-* **GPU Usage**: Enable GPU acceleration for faster Cellpose segmentation
+**Threshold Adjustment:**
 
-Next Steps
-----------
+* Start with mid-range values (around 50)
+* Lower threshold = more spots detected (more sensitive)
+* Higher threshold = fewer spots (more specific)
+* Optimize on a test image before batch processing
 
-* See :doc:`user_guide` for detailed feature descriptions
-* Check :doc:`api` for programmatic usage
-* Review example datasets and parameters
+**Image Quality:**
+
+* Use well-focused images with good contrast
+* Ensure consistent imaging parameters across samples
+* Check that all three channels are properly aligned
+
+**Consistent Naming:**
+
+* Use the same identifier pattern for all images
+* Example: ``sample001_435.tif``, ``sample001_525.tif``, ``sample001_679.tif``
+* Identifiers can appear anywhere in the filename
+
+**Performance:**
+
+* Enable GPU for faster Cellpose segmentation
+* Process similar images in batches
+* Close other applications if memory is limited
 
 Common Issues
 -------------
 
-**No spots detected**: 
-   Lower the detection threshold or check image quality
+**No spots detected:**
 
-**Too many false positives**: 
-   Increase the detection threshold or improve image preprocessing
+* Lower the detection threshold
+* Check that images are properly loaded
+* Verify channel identifiers match your filenames
 
-**Segmentation errors**: 
-   Check that DAPI images are properly focused and contrasted 
+**Too many false positives:**
+
+* Increase the detection threshold
+* Check image quality and background
+
+**Segmentation errors:**
+
+* Verify DAPI image quality
+* Use manual correction tools
+* Check that chromosomes are well-separated
+
+**Images won't load:**
+
+* Verify file naming matches your identifiers
+* Check that files are in supported formats (TIFF, PNG, JPG)
+* Ensure all three channels are present (or use Skip Segmentation)
+
+Next Steps
+----------
+
+* Read the complete :doc:`user_guide` for detailed feature descriptions
+* Check the :doc:`api` documentation for programmatic usage
+* Review :doc:`installation` for GPU setup and optimization
+
+**Need Help?**
+
+Contact: sagarm2@nih.gov (HITIF/LRBGE/CCR/NCI)
