@@ -1,7 +1,7 @@
-Quick Start Guide
-=================
+Tutorial
+========
 
-This guide will get you up and running with the Napari Chromosome Analysis toolkit quickly.
+This tutorial will guide you through a complete chromosome analysis with MetaChrome. You'll learn all the steps from launching the application to exporting your results.
 
 Prerequisites
 -------------
@@ -22,8 +22,8 @@ Start the application from the command line::
 
 The Napari viewer window will open with the chromosome analysis interface.
 
-Quick Workflow (5 Steps)
--------------------------
+Complete Analysis Workflow
+---------------------------
 
 Step 1: Configure Channel Identifiers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

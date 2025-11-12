@@ -40,7 +40,6 @@ Contents
    :caption: Tutorial
    
    installation
-   tutorial
    quickstart
 
 .. toctree::
@@ -74,9 +73,9 @@ Quick Navigation
      - :doc:`getting_started`
    * - Install the software
      - :doc:`installation`
-   * - Do my first analysis
-     - :doc:`tutorial`
-   * - Learn the complete workflow
+   * - Learn to analyze images
+     - :doc:`quickstart`
+   * - Understand the complete workflow
      - :doc:`workflow`
    * - Process many images
      - :doc:`batch_processing`
@@ -103,7 +102,7 @@ A typical analysis workflow:
 
 1. **Configure** channel identifiers → 2. **Load** images → 3. **Segment** chromosomes → 4. **Detect** spots → 5. **Find** common regions → 6. **Measure** intensities → 7. **Export** results
 
-See the :doc:`tutorial` for a step-by-step walkthrough.
+See the :doc:`quickstart` for a step-by-step walkthrough.
 
 Use Cases
 ---------
