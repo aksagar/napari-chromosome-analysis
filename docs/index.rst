@@ -1,118 +1,123 @@
 Napari Chromosome Analysis
 ===========================
 
-Welcome to the Napari Chromosome Analysis documentation!
-
 .. figure:: _static/images/slide_02_the_interface_img02.png
    :alt: Napari Chromosome Analysis Interface
    :align: center
    :width: 90%
 
-   The Napari Chromosome Analysis toolkit interface
+   The Napari Chromosome Analysis toolkit
 
-This project provides tools for analyzing metaphase chromosomes using the Napari platform.
-It facilitates the visualization and segmentation of chromosome images, enabling users 
-to efficiently assess chromosome structures and perform quantitative analysis.
-
-The code integrates tools for detecting centromeres and measuring CENP-A levels 
-within metaphase chromosome regions, enhancing the accuracy of chromosome analysis.
-
-Features
---------
+An automatic deep learning toolkit for metaphase chromosome analysis, written in Python using Napari and Cellpose. It enables researchers to analyze multi-channel fluorescence microscopy images for chromosome segmentation, spot detection, and intensity quantification.
 
 .. image:: _static/images/slide_06_slide_6_img06.jpg
    :alt: Chromosome segmentation example
    :align: right
    :width: 300px
 
-* **Image Processing**: Load and process DAPI, DNA-FISH, and CENP-C images
-* **Chromosome Segmentation**: Automatic chromosome segmentation using Cellpose
-* **Spot Detection**: Detect DNA-FISH and CENP-C spots with customizable thresholds
-* **Batch Processing**: Process multiple images in batch mode
-* **Interactive Analysis**: Interactive tools for manual correction and analysis
-* **Quantitative Analysis**: Measure intensities and calculate statistics
+**Key Features:**
 
-Key Capabilities
-----------------
+* **Automated Segmentation** - Cellpose-based chromosome detection
+* **Multi-Channel Analysis** - DAPI, DNA-FISH, and CENP-C support
+* **Spot Detection** - Adjustable threshold-based detection
+* **Interactive Visualization** - Built on Napari platform
+* **Batch Processing** - High-throughput analysis
+* **Manual Corrections** - Interactive refinement tools
 
-**Automated Segmentation**
+This toolkit integrates tools for detecting centromeres and measuring CENP-A levels within metaphase chromosome regions, enhancing the accuracy of chromosome analysis for researchers at the National Cancer Institute/NIH and beyond.
 
-Uses trained Cellpose models to automatically identify and segment individual metaphase chromosomes from DAPI images.
+Tutorial
+--------
 
-**Multi-Channel Spot Detection**
+Start here if you're new to the toolkit. These guides will get you up and running quickly.
 
-Detects and localizes DNA-FISH and CENP-C spots with adjustable threshold controls for optimal sensitivity and specificity.
+.. toctree::
+   :maxdepth: 1
+   
+   getting_started
+   installation
+   tutorial
 
-**Co-localization Analysis**
+**Getting Started**
+   Overview of the toolkit, key features, and typical workflows.
 
-Identifies regions where multiple signals overlap, enabling precise quantification of signal co-localization.
+**Installation**
+   Step-by-step installation instructions and requirements.
 
-**Manual Correction Tools**
+**Tutorial: Your First Analysis**
+   Hands-on tutorial walking through your first complete analysis from start to finish.
 
-Provides interactive tools for:
+User Guide
+----------
 
-* Merging incorrectly split chromosomes
-* Removing unwanted regions
-* Deleting false-positive spots
-* Refining automated results
+Detailed how-to guides for all features and workflows.
+
+.. toctree::
+   :maxdepth: 2
+   
+   workflow
+   batch_processing
+   manual_corrections
+   advanced_features
+   troubleshooting
+
+**Basic Workflow**
+   Complete guide to single-image analysis with all parameters explained.
 
 **Batch Processing**
+   Process multiple image folders automatically with consistent settings.
 
-Process multiple image folders automatically with consistent parameters, generating individual and summary results files.
+**Manual Corrections**
+   Interactive tools for merging chromosomes, removing regions, and deleting spots.
 
-Author
-------
+**Advanced Features**
+   Parameter optimization, Python scripting, and performance tuning.
 
-**Md Abdul Kader Sagar**  
+**Troubleshooting**
+   Solutions to common problems, error messages, and debugging tips.
 
-* Email: sagarm2@nih.gov  
-* Affiliation: HITIF/LRBGE/CCR/NCI (National Cancer Institute/NIH)
+API Reference
+-------------
+
+API documentation for programmatic usage.
+
+.. toctree::
+   :maxdepth: 2
+   
+   api
+   modules
+
+**API Reference**
+   Complete API documentation for all classes and functions.
+
+**Module Reference**
+   Detailed module documentation and code examples.
 
 Quick Links
 -----------
 
 .. list-table::
-   :widths: 30 70
+   :widths: 40 60
    :class: borderless
 
-   * - :doc:`installation`
-     - Installation instructions and requirements
-   * - :doc:`quickstart`
-     - Get started quickly with basic workflows
-   * - :doc:`user_guide`
-     - Comprehensive guide with screenshots and examples
-   * - :doc:`api`
-     - API reference and function documentation
+   * - **I want to...**
+     - **Go to...**
+   * - Get started quickly
+     - :doc:`tutorial`
+   * - Understand the workflow
+     - :doc:`workflow`
+   * - Process many images
+     - :doc:`batch_processing`
+   * - Fix detection errors
+     - :doc:`manual_corrections`
+   * - Optimize parameters
+     - :doc:`advanced_features`
+   * - Solve a problem
+     - :doc:`troubleshooting`
+   * - Use the API
+     - :doc:`api`
 
-Contents
---------
-
-.. toctree::
-   :maxdepth: 2
-   :caption: User Documentation
-
-   installation
-   quickstart
-   user_guide
-
-.. toctree::
-   :maxdepth: 2
-   :caption: API Reference
-
-   api
-   modules
-
-Getting Started
-===============
-
-To get started with this project:
-
-1. **Install the software** - See the :doc:`installation` guide for detailed instructions
-2. **Try the quick start** - Follow the :doc:`quickstart` tutorial for a rapid introduction
-3. **Read the user guide** - Explore the comprehensive :doc:`user_guide` with screenshots
-4. **Check the API docs** - Review the :doc:`api` reference for programmatic usage
-
-Typical Workflow
+Example Workflow
 ----------------
 
 .. figure:: _static/images/slide_08_after_clicking_detect_channel__img08.png
@@ -122,47 +127,48 @@ Typical Workflow
 
    Example of spot detection results
 
-A typical analysis workflow consists of:
+A typical analysis workflow:
 
-1. **Configure** channel identifiers to match your image naming convention
-2. **Load** multi-channel fluorescence microscopy images
-3. **Segment** chromosomes using automated Cellpose-based detection
-4. **Detect** DNA-FISH and CENP-C spots with threshold controls
-5. **Analyze** co-localization by finding common regions
-6. **Measure** signal intensities at spot locations
-7. **Export** results as CSV files for further analysis
+1. **Configure** channel identifiers → 2. **Load** images → 3. **Segment** chromosomes → 4. **Detect** spots → 5. **Find** common regions → 6. **Measure** intensities → 7. **Export** results
 
-For Multiple Images
-~~~~~~~~~~~~~~~~~~~
-
-Use the batch processing feature to:
-
-* Process entire folders of images automatically
-* Apply consistent parameters across all samples
-* Generate combined summary reports
-* Save time on large datasets
+See the :doc:`tutorial` for a step-by-step walkthrough.
 
 Use Cases
 ---------
 
 This toolkit is designed for researchers working on:
 
-* **Chromosome Structure Analysis**: Quantitative assessment of metaphase chromosome morphology
-* **Centromere Studies**: CENP-C localization and intensity measurements
-* **DNA-FISH Analysis**: Detection and quantification of specific DNA sequences
-* **Signal Co-localization**: Spatial relationship between different fluorescent markers
-* **High-Throughput Screening**: Batch processing of large image datasets
+**Chromosome Structure Analysis**
+   Quantitative assessment of metaphase chromosome morphology and organization.
+
+**Centromere Studies**
+   CENP-C localization, intensity measurements, and centromere protein analysis.
+
+**DNA-FISH Analysis**
+   Detection and quantification of specific DNA sequences in metaphase chromosomes.
+
+**Signal Co-localization**
+   Spatial relationships between different fluorescent markers on chromosomes.
+
+**High-Throughput Screening**
+   Automated analysis of large image datasets from screening experiments.
 
 Image Requirements
 ------------------
 
-The software works with multi-channel fluorescence microscopy images:
+**Required Channels:**
 
-* **DAPI channel**: For chromosome segmentation
-* **DNA-FISH channel**: For detecting specific DNA sequences  
-* **CENP-C channel**: For detecting centromere proteins
+* **DAPI** - Chromosome/nuclear staining for segmentation
+* **DNA-FISH** (Channel 1) - Specific DNA sequence detection
+* **CENP-C** (Channel 2) - Centromere protein detection
 
-**Supported formats**: TIFF (recommended), PNG, JPG
+**Supported Formats:**
+
+TIFF (recommended), PNG, JPG
+
+**File Naming:**
+
+Images should contain identifiable strings (e.g., ``sample_001_w435.tif``, ``sample_001_w525.tif``, ``sample_001_w679.tif``)
 
 Example Results
 ---------------
@@ -172,33 +178,55 @@ Example Results
    :align: center
    :width: 80%
 
-   Complete analysis showing chromosomes and detected spots in both channels
+   Complete analysis showing detected spots in both channels
 
-The analysis generates:
+**Outputs:**
 
-* **Visual overlays** showing segmented chromosomes and detected spots
-* **CSV data files** with coordinates and intensity measurements
-* **Summary statistics** for batch processed datasets
-* **Exportable images** for presentations and publications
+* Visual overlays (segmented chromosomes + detected spots)
+* CSV files with coordinates and intensity measurements
+* Summary statistics for batch-processed datasets
+* Exportable images for presentations and publications
 
-Community and Support
----------------------
+Performance
+-----------
+
+**Processing Speed:**
+
+* Single image: ~30-60 seconds (with GPU)
+* Batch of 100 images: ~1-2 hours (with GPU)
+
+**Accuracy:**
+
+* Chromosome segmentation: High accuracy with trained Cellpose models
+* Spot detection: Adjustable sensitivity via threshold controls
+* Manual correction: Interactive refinement for maximum accuracy
+
+Citation
+--------
+
+If you use this toolkit in your research, please cite:
+
+**Author:** Md Abdul Kader Sagar  
+**Email:** sagarm2@nih.gov  
+**Affiliation:** HITIF/LRBGE/CCR/NCI (National Cancer Institute/NIH)
+
+License
+-------
+
+This project is developed at the National Cancer Institute/NIH.
+
+Contact and Support
+-------------------
 
 **Questions or Issues?**
 
-For questions, bug reports, or feature requests:
+* **Email:** sagarm2@nih.gov
+* **Institution:** National Cancer Institute/NIH
 
-* **Email**: sagarm2@nih.gov
-* **Institution**: National Cancer Institute/NIH
+**Community Resources:**
 
-**Contributing**
-
-This project is developed at the National Cancer Institute. Contributions and feedback are welcome.
-
-License
-=======
-
-This project is developed at the National Cancer Institute/NIH.
+* Napari Documentation: https://napari.org/
+* Cellpose Documentation: https://cellpose.readthedocs.io/
 
 Indices and Tables
 ==================
