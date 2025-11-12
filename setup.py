@@ -80,7 +80,7 @@ setup(
     zip_safe=False,
     keywords="metachrome, chromosome, analysis, segmentation, fluorescence, microscopy, napari",
     project_urls={
-        "Documentation": "https://metachrome.readthedocs.io/",
+        "Documentation": "https://metachrome-analysis.readthedocs.io/",
         "Source": "https://github.com/aksagar/napari-chromosome-analysis",
         "Tracker": "https://github.com/aksagar/napari-chromosome-analysis/issues",
     },
