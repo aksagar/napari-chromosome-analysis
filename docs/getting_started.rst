@@ -1,22 +1,22 @@
 Getting Started
 ===============
 
-Welcome to the Napari Chromosome Analysis toolkit!
+Welcome to MetaChrome!
 
 .. figure:: _static/images/slide_02_the_interface_img02.png
-   :alt: Napari Chromosome Analysis Interface
+   :alt: MetaChrome Interface
    :align: center
    :width: 90%
 
-   The Napari Chromosome Analysis toolkit interface
+   The MetaChrome toolkit interface
 
 Overview
 --------
 
-The Napari Chromosome Analysis toolkit is a comprehensive solution for analyzing metaphase chromosomes using advanced image processing techniques. Built on the powerful Napari platform, it combines automated segmentation with interactive visualization and manual correction tools.
+MetaChrome is a comprehensive solution for analyzing metaphase chromosomes using advanced image processing techniques. Built on the powerful Napari platform, it combines automated segmentation with interactive visualization and manual correction tools.
 
-What is Napari Chromosome Analysis?
-------------------------------------
+What is MetaChrome?
+-------------------
 
 This toolkit provides researchers with:
 

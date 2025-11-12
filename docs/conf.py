@@ -51,7 +51,7 @@ os.environ['SPHINX_BUILD'] = '1'
 
 # -- Project information -----------------------------------------------------
 
-project = 'Napari Chromosome Analysis'
+project = 'MetaChrome'
 copyright = '2024, Md Abdul Kader Sagar'
 author = 'Md Abdul Kader Sagar'
 
@@ -88,6 +88,15 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # a list of builtin themes.
 #
 html_theme = 'sphinx_rtd_theme'
+
+# Theme options for sphinx_rtd_theme
+html_theme_options = {
+    'navigation_depth': 4,
+    'collapse_navigation': False,
+    'sticky_navigation': True,
+    'includehidden': True,
+    'titles_only': False
+}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

@@ -1,12 +1,12 @@
-Napari Chromosome Analysis
-===========================
+MetaChrome Documentation
+========================
 
 .. figure:: _static/images/slide_02_the_interface_img02.png
-   :alt: Napari Chromosome Analysis Interface
+   :alt: MetaChrome Interface
    :align: center
    :width: 90%
 
-   The Napari Chromosome Analysis toolkit
+   The MetaChrome toolkit for chromosome analysis
 
 An automatic deep learning toolkit for metaphase chromosome analysis, written in Python using Napari and Cellpose. It enables researchers to analyze multi-channel fluorescence microscopy images for chromosome segmentation, spot detection, and intensity quantification.
 
@@ -26,85 +26,57 @@ An automatic deep learning toolkit for metaphase chromosome analysis, written in
 
 This toolkit integrates tools for detecting centromeres and measuring CENP-A levels within metaphase chromosome regions, enhancing the accuracy of chromosome analysis for researchers at the National Cancer Institute/NIH and beyond.
 
-Tutorial
+Contents
 --------
-
-Start here if you're new to the toolkit. These guides will get you up and running quickly.
-
-.. toctree::
-   :maxdepth: 1
-   
-   getting_started
-   installation
-   tutorial
-
-**Getting Started**
-   Overview of the toolkit, key features, and typical workflows.
-
-**Installation**
-   Step-by-step installation instructions and requirements.
-
-**Tutorial: Your First Analysis**
-   Hands-on tutorial walking through your first complete analysis from start to finish.
-
-User Guide
-----------
-
-Detailed how-to guides for all features and workflows.
 
 .. toctree::
    :maxdepth: 2
+   :caption: Introduction
+   
+   getting_started
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Tutorial
+   
+   installation
+   tutorial
+   quickstart
+
+.. toctree::
+   :maxdepth: 2
+   :caption: User Guide
    
    workflow
    batch_processing
    manual_corrections
    advanced_features
    troubleshooting
-
-**Basic Workflow**
-   Complete guide to single-image analysis with all parameters explained.
-
-**Batch Processing**
-   Process multiple image folders automatically with consistent settings.
-
-**Manual Corrections**
-   Interactive tools for merging chromosomes, removing regions, and deleting spots.
-
-**Advanced Features**
-   Parameter optimization, Python scripting, and performance tuning.
-
-**Troubleshooting**
-   Solutions to common problems, error messages, and debugging tips.
-
-API Reference
--------------
-
-API documentation for programmatic usage.
+   user_guide
 
 .. toctree::
    :maxdepth: 2
+   :caption: API Reference
    
    api
    modules
 
-**API Reference**
-   Complete API documentation for all classes and functions.
-
-**Module Reference**
-   Detailed module documentation and code examples.
-
-Quick Links
------------
+Quick Navigation
+----------------
 
 .. list-table::
    :widths: 40 60
-   :class: borderless
+   :header-rows: 1
 
    * - **I want to...**
      - **Go to...**
-   * - Get started quickly
+   * - Understand what this toolkit does
+     - :doc:`getting_started`
+   * - Install the software
+     - :doc:`installation`
+   * - Do my first analysis
      - :doc:`tutorial`
-   * - Understand the workflow
+   * - Learn the complete workflow
      - :doc:`workflow`
    * - Process many images
      - :doc:`batch_processing`
@@ -114,7 +86,7 @@ Quick Links
      - :doc:`advanced_features`
    * - Solve a problem
      - :doc:`troubleshooting`
-   * - Use the API
+   * - Use the API programmatically
      - :doc:`api`
 
 Example Workflow

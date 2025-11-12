@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-Setup script for Napari Chromosome Analysis toolkit.
+Setup script for MetaChrome toolkit.
 
 Author: Md Abdul Kader Sagar
 Email: sagarm2@nih.gov
@@ -16,18 +16,18 @@ try:
     long_description = (this_directory / "README.md").read_text()
 except FileNotFoundError:
     long_description = """
-    Napari Chromosome Analysis Toolkit
+    MetaChrome - Metaphase Chromosome Analysis Toolkit
     
     A comprehensive toolkit for analyzing metaphase chromosomes using the Napari platform.
     Features chromosome segmentation, spot detection, and quantitative analysis.
     """
 
 setup(
-    name="napari-chromosome-analysis",
+    name="metachrome",
     version="1.0.0",
     author="Md Abdul Kader Sagar",
     author_email="sagarm2@nih.gov",
-    description="A toolkit for analyzing metaphase chromosomes using Napari",
+    description="MetaChrome - A toolkit for analyzing metaphase chromosomes",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/aksagar/napari-chromosome-analysis",
@@ -73,14 +73,14 @@ setup(
     },
     entry_points={
         "console_scripts": [
-            "napari-chromosome-analysis=main:main",
+            "metachrome=main:main",
         ],
     },
     include_package_data=True,
     zip_safe=False,
-    keywords="napari, chromosome, analysis, segmentation, fluorescence, microscopy",
+    keywords="metachrome, chromosome, analysis, segmentation, fluorescence, microscopy, napari",
     project_urls={
-        "Documentation": "https://napari-chromosome-analysis.readthedocs.io/",
+        "Documentation": "https://metachrome.readthedocs.io/",
         "Source": "https://github.com/aksagar/napari-chromosome-analysis",
         "Tracker": "https://github.com/aksagar/napari-chromosome-analysis/issues",
     },

@@ -1,7 +1,7 @@
 Tutorial: Your First Analysis
 ==============================
 
-This tutorial will guide you through your first chromosome analysis from start to finish. By the end, you'll have processed an image and generated results.
+This tutorial will guide you through your first chromosome analysis with MetaChrome from start to finish. By the end, you'll have processed an image and generated results.
 
 Prerequisites
 -------------
