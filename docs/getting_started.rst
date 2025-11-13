@@ -21,7 +21,7 @@ What is MetaChrome?
 This toolkit provides researchers with:
 
 * **Automated chromosome segmentation** using trained Cellpose models
-* **Multi-channel fluorescence analysis** for DAPI, DNA-FISH, and CENP-C
+* **Multi-channel fluorescence analysis** for DAPI, DNA-FISH, and protein markers
 * **Spot detection and quantification** with customizable thresholds
 * **Interactive visualization** in the Napari viewer
 * **Batch processing** for high-throughput analysis
@@ -84,7 +84,7 @@ The software works with multi-channel fluorescence microscopy images:
 
 * **DAPI channel**: For chromosome segmentation (nuclear/chromosome staining)
 * **DNA-FISH channel** (Channel 1): For detecting specific DNA sequences
-* **CENP-C channel** (Channel 2): For detecting centromere proteins
+* **Protein marker channel** (Channel 2): For detecting proteins of interest (e.g., CENP-C, CENP-A, histone modifications)
 
 **Supported Formats:**
 
@@ -96,8 +96,8 @@ The software works with multi-channel fluorescence microscopy images:
 
 Images should contain identifiable strings in their filenames:
 
-* Example: ``sample_001_w435.tif`` (DAPI), ``sample_001_w525.tif`` (DNA-FISH), ``sample_001_w679.tif`` (CENP-C)
-* Or: ``cell1_dapi.tif``, ``cell1_dna_fish.tif``, ``cell1_cenpc.tif``
+* Example: ``sample_001_w435.tif`` (DAPI), ``sample_001_w525.tif`` (DNA-FISH), ``sample_001_w679.tif`` (Protein marker)
+* Or: ``cell1_dapi.tif``, ``cell1_dna_fish.tif``, ``cell1_protein.tif``
 
 The identifiers can appear anywhere in the filename and are configurable in the interface.
 

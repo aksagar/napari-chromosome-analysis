@@ -18,7 +18,7 @@ An automatic deep learning toolkit for metaphase chromosome analysis, written in
 **Key Features:**
 
 * **Automated Segmentation** - Cellpose-based chromosome detection
-* **Multi-Channel Analysis** - DAPI, DNA-FISH, and CENP-C support
+* **Multi-Channel Analysis** - DAPI, DNA-FISH, and protein marker support
 * **Spot Detection** - Adjustable threshold-based detection
 * **Interactive Visualization** - Built on Napari platform
 * **Batch Processing** - High-throughput analysis
@@ -112,8 +112,8 @@ This toolkit is designed for researchers working on:
 **Chromosome Structure Analysis**
    Quantitative assessment of metaphase chromosome morphology and organization.
 
-**Centromere Studies**
-   CENP-C localization, intensity measurements, and centromere protein analysis.
+**Protein Localization Studies**
+   Analyze protein markers such as CENP-C, CENP-A, histone modifications, and other chromatin-associated proteins.
 
 **DNA-FISH Analysis**
    Detection and quantification of specific DNA sequences in metaphase chromosomes.
@@ -131,7 +131,7 @@ Image Requirements
 
 * **DAPI** - Chromosome/nuclear staining for segmentation
 * **DNA-FISH** (Channel 1) - Specific DNA sequence detection
-* **CENP-C** (Channel 2) - Centromere protein detection
+* **Protein Marker** (Channel 2) - Protein localization (e.g., CENP-C, CENP-A, histone modifications)
 
 **Supported Formats:**
 
